@@ -135,13 +135,13 @@ The main firmware (`ESP32-Cam/final_parking/parking.ino`) includes several criti
 ### Connections
 Refer to the following images for wiring details:
 
-![Circuit Diagram](Images/circuit.png)
+![Circuit Diagram](Images/circuit.png)<br>
 *Circuit diagram showing connections for ESP32-CAM, IR sensors, servo, and flashlight.*
 
-![ESP32-CAM Pinout](Images/ESP32-CAM-Pinout.jpg)
+![ESP32-CAM Pinout](Images/ESP32-CAM-Pinout.jpg)<br>
 *Pinout diagram for the ESP32-CAM module.*
 
-![ESP32-CAM Connections](Images/esp-32-cam-connection.jpg)
+![ESP32-CAM Connections](Images/esp-32-cam-connection.jpg)<br>
 *Physical connections for the ESP32-CAM and peripherals.*
 
 Key connections:
