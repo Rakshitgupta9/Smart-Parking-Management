@@ -1,5 +1,4 @@
 # Smart IoT-Based Parking Management System Using ESP32-CAM and Custom ANPR  Model
-
 ## Project Overview
 The **Smart Parking Management** project is an IoT-based solution designed to automate vehicle parking processes using the ESP32-CAM module and Automatic Number Plate Recognition (ANPR). The system captures vehicle images, sends them to a local server for number plate recognition, and controls access using IR sensors and a servo motor. A web interface provides real-time status updates, including time, system status, and recognized number plates. The project integrates hardware (ESP32-CAM, IR sensors, servo motor, flashlight) and software (ANPR model, local server) to create an efficient parking management system suitable for small-scale parking lots.
 
@@ -39,7 +38,8 @@ Smart-Parking-Management/
 │   ├── circuit.png
 │   ├── ESP32-CAM-Pinout.jpg
 │   ├── esp_32_cam_connection.jpg
-│   └── flowchart.png
+│   ├── flowchart.png
+│   └── demo.gif
 └── README.md
 ```
 
@@ -63,6 +63,7 @@ Smart-Parking-Management/
   - `ESP32-CAM-Pinout.jpg`: Pinout diagram for the ESP32-CAM module, aiding in hardware setup.
   - `esp_32_cam_connection.jpg`: Image showing the physical connections for the ESP32-CAM and peripherals.
   - `flowchart.png`: Flowchart depicting the system’s operational workflow, from sensor detection to image processing and servo control.
+  - `demo.gif`: Animated demo of the system in operation, showcasing sensor triggers, image capture, and web interface updates.
 
 ## Key Code Components
 The main firmware (`ESP32-Cam/final_parking/parking.ino`) includes several critical functions and structures that drive the smart parking system. Below are their roles:
@@ -80,10 +81,10 @@ The main firmware (`ESP32-Cam/final_parking/parking.ino`) includes several criti
   The `handleTrigger` function initiates image capture when triggered, either manually via the web interface or automatically when the entry IR sensor detects a vehicle. It updates the system status, calls `sendPhoto` to capture and upload the image, and refreshes the web interface to reflect the outcome (e.g., success or failure).
 
 - **openBarrier Function**:
-  The `openBarrier` function controls the servo motor to open the parking barrier by setting it to 0°, allowing a vehicle to enter after successful number plate recognition. This function is part of the entry sequence in earlier implementations but may be simplified in the current code to toggle the servo.
+  The `openBarrier` function controls the servo motor to open the parking barrier by setting it to 0°, allowing a vehicle to enter after successful number plate recognition. This function is part of the entry sequence in earlier implementations but is simplified in the current code to toggle the servo.
 
 - **closeBarrier Function**:
-  The `closeBarrier` function moves the servo motor to 90° to close the barrier after a vehicle has entered, securing the parking lot. Like `openBarrier`, it is part of the entry/exit logic in earlier versions but may be adapted for simpler servo toggling.
+  The `closeBarrier` function moves the servo motor to 90° to close the barrier after a vehicle has entered, securing the parking lot. Like `openBarrier`, it is part of the entry/exit logic in earlier versions but is adapted for simpler servo toggling.
 
 - **sendPhoto Function**:
   A core function that captures an image using the ESP32-CAM and uploads it to the local server (`192.168.29.56:5000/upload`) via HTTP POST. It activates the flashlight for better image quality, sends the image as multipart/form-data, and processes the server’s JSON response to extract the number plate and image URL. This drives the logic for updating the web interface and logging events.
@@ -132,7 +133,18 @@ The main firmware (`ESP32-Cam/final_parking/parking.ino`) includes several criti
   - IR Sensors: 3.3V or 5V (check sensor specs).
 
 ### Connections
-Refer to `image/circuit.png`, `image/ESP32-CAM-Pinout.jpg`, and `image/esp_32_cam_connection.jpg` for wiring. Key connections:
+Refer to the following images for wiring details:
+
+![Circuit Diagram](Images/circuit.png)
+*Circuit diagram showing connections for ESP32-CAM, IR sensors, servo, and flashlight.*
+
+![ESP32-CAM Pinout](Images/ESP32-CAM-Pinout.jpg)
+*Pinout diagram for the ESP32-CAM module.*
+
+![ESP32-CAM Connections](Images/esp-32-cam-connection.jpg)
+*Physical connections for the ESP32-CAM and peripherals.*
+
+Key connections:
 - **Entry IR Sensor**: Signal to GPIO 16, VCC (3.3V/5V), GND.
 - **Exit IR Sensor**: Signal to GPIO 15, VCC (3.3V/5V), GND.
 - **Servo**: Signal to GPIO 14, VCC (external 5V), GND (common).
@@ -210,4 +222,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **Name**: [Rakshit Gupta](https://github.com/Rakshitgupta9/Celebal-Internship)
 - **Email**: guptarakshit9858@gmail.com
 - **LinkedIn**: [Rakshit Gupta](https://www.linkedin.com/in/rakshit9/)
-
