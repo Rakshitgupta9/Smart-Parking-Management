@@ -219,6 +219,6 @@ Contributions are welcome! Please open an issue or submit a pull request with im
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-- **Name**: [Rakshit Gupta](https://github.com/Rakshitgupta9/Celebal-Internship)
+- **Name**: [Rakshit Gupta](https://github.com/Rakshitgupta9/)
 - **Email**: guptarakshit9858@gmail.com
 - **LinkedIn**: [Rakshit Gupta](https://www.linkedin.com/in/rakshit9/)
